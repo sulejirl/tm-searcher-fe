@@ -20,7 +20,7 @@ const App = () => {
   const debouncedSearchTerm = useDebounce(searchTerm,500);
   useEffect(()=> {
     if(debouncedSearchTerm){
-      axios.get(`http://localhost:3001/search`, {params:{search:searchTerm}})
+      axios.get(`https://tm-searcher-be.herokuapp.com/search`, {params:{search:searchTerm}})
       .then((response)=> {
         setSearchResults(response.data);
         setProfile({});
