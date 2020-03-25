@@ -1,11 +1,11 @@
 import React,{useState,useEffect} from 'react';
+import {searchPlayers,getProfile,getStats,getStatsBySeason} from '../../utils/requests';
 import {Search} from '../Search';
 import {Result} from '../Result'
 import {Profile} from '../Profile';
 import {Stats} from '../Stats';
 
 import './App.css';
-import axios from 'axios';
 import useDebounce from '../../hooks/useDebounce.js';
 const App = () => {
   const [searchTerm,setSearchTerm] = useState('');
@@ -20,42 +20,42 @@ const App = () => {
   const debouncedSearchTerm = useDebounce(searchTerm,500);
   useEffect(()=> {
     if(debouncedSearchTerm){
-      axios.get(`https://tm-searcher-be.herokuapp.com/search`, {params:{search:searchTerm}})
-      .then((response)=> {
+      searchPlayers({search:searchTerm})
+      .then(response => {
         setSearchResults(response.data);
         setProfile({});
         setStats({});
         setSeasonalStats([]);
-      });
+      })
     }
   },[debouncedSearchTerm])
   
   const handleOnSelectPlayer = (item) => {
     setSelectedItem(item);
-    axios.get(`https://tm-searcher-be.herokuapp.com/profile`, {params:{id:item.id}})
-      .then((response)=> {
-        setProfile(response.data);
-      });
-      axios.get(`https://tm-searcher-be.herokuapp.com/stats`, {params:{id:item.id}})
-      .then((response)=> {
-        setStats(response.data);
-      });
+    getProfile({id:item.id})
+    .then(response=>{
+      setProfile(response.data);
+    })
+    getStats({id:item.id})
+    .then(response => {
+      setStats(response.data);
+    })
   }
   const handleOnDetailedStats = () => {
     if(seasonalStats.length < 1) {
-      axios.get(`https://tm-searcher-be.herokuapp.com/statsbyseason`, {params:{id:selectedItem.id,season:year}})
-      .then((response)=> {
+      getStatsBySeason({id:selectedItem.id,season:year})
+      .then(response => {
         setSeasonalStats(response.data)
-      });
+      })
     }
     setStatsSwitch(!statsSwitch)
   }
   const handleOnChangeYear = (year) => {
     setYear(year)
-    axios.get(`https://tm-searcher-be.herokuapp.com/statsbyseason`, {params:{id:selectedItem.id,season:year}})
-    .then((response)=> {
-      setSeasonalStats(response.data)
-    });
+    getStatsBySeason({id:selectedItem.id,season:year})
+      .then(response => {
+        setSeasonalStats(response.data)
+      })
   }
   return (
     <div className='App'>
