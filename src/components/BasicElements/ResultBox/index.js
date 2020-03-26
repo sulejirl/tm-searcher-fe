@@ -7,11 +7,15 @@ const StyledResult = styled.div`
     border-radius: 5px;
     padding:10px 0px;
     margin: 0.1vw 0px;
-    font-size:0.8vw;
-    width:30vw;
+    font-size:1vw;
+    width:40vw;
     text-align:center;
     cursor:pointer;
     align-items:center;
+    @media (max-width: 800px) {
+      width: 80vw;
+      font-size:2vw
+    } 
     &:hover {
       background-color:#b2fcff;
     }
@@ -21,7 +25,11 @@ const StyledResult = styled.div`
     }
     div {
       display:flex;
+      width:10vw;
       flex-direction:column;
+      @media (max-width: 800px) {
+        width: 20vw;
+      } 
     }
 `;
 export default StyledResult;
