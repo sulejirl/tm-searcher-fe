@@ -4,8 +4,7 @@ import {Search} from '../Search';
 import {Result} from '../Result'
 import {Profile} from '../Profile';
 import {Stats} from '../Stats';
-
-import './App.css';
+import './index.css';
 import useDebounce from '../../utils/hooks/useDebounce';
 const App = () => {
   const [searchTerm,setSearchTerm] = useState('');
