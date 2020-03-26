@@ -5,10 +5,8 @@ const StyledField = styled(TextField)`
   && {
     font-family: 'Exo 2', sans-serif;    
     margin-top:5%;
-    width:30%;
-    @media (max-width: 640px) {
-      font-size: 10px;
-    } 
+    width:30vw;
+    font-size:1vw;
   }
 `;
 export default StyledField;

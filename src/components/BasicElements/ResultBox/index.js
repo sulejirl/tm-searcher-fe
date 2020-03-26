@@ -6,8 +6,10 @@ const StyledResult = styled.div`
     border: 1px solid black;
     border-radius: 5px;
     padding:10px 0px;
-    margin: 1px 0px;
-    width:30%;
+    margin: 0.1vw 0px;
+    font-size:0.8vw;
+    width:30vw;
+    text-align:center;
     cursor:pointer;
     align-items:center;
     &:hover {
@@ -15,18 +17,11 @@ const StyledResult = styled.div`
     }
     img {
       width:7%;
-      margin:5px;
+      margin:0.5vw;
     }
     div {
       display:flex;
       flex-direction:column;
-      width: 30%;
-      @media (max-width: 640px) {
-        font-size: 10px;
-      }
-    }
-    @media (max-width: 640px) {
-      font-size: 10px;
     }
 `;
 export default StyledResult;

@@ -1,10 +1,9 @@
 import React from 'react'
-import Row from '../Row';
-import Line from '../HorizontalLine';
+import Row from '../BasicElements/Row';
+import Line from '../BasicElements/HorizontalLine';
 import moment from 'moment';
 
 const Value = (props) => {
-  console.log(props.item);
     return (
       <React.Fragment>
         <Row>
@@ -23,28 +22,28 @@ const Value = (props) => {
           <Line/>
           {props.item.matches.map((item,index)=>{
             return(
-              <div>
-              <div style={{display:'flex',fontSize:'10px',marginTop:'10px',fontWeight:'bold'}}>
-                <div style={{width:'100px'}}>{item.matchday}</div>
-                <div style={{width:'70px'}}>{moment(item.date).format('DD.MM.YYYY')}</div>
-                <div style={{width:'100px'}}>{item.home}</div>
-                <div style={{width:'30px'}}>{item.score}</div>
-                <div style={{width:'100px'}}>{item.away}</div>
+              <div key={index}>
+              <div style={{display:'flex',fontSize:'0.8vw',marginTop:'10px'}}>
+                <div style={{width:'8vw'}}>{item.matchday}</div>
+                <div style={{width:'4vw'}}>{moment(item.date).format('DD.MM.YYYY')}</div>
+                <div style={{width:'10vw'}}>{item.home}</div>
+                <div style={{width:'2vw'}}>{item.score}</div>
+                <div style={{width:'10vw'}}>{item.away}</div>
                 {item.played && (
                   <React.Fragment>
-                    <div style={{width:'80px'}}>Position: {item.position}</div>
-                    <div style={{width:'60px'}}>Goals:{item.goals}</div>
-                    <div style={{width:'60px'}}>Asists:{item.assists}</div>
-                    <div style={{width:'60px'}}>Yellow:{item.yellow}</div>
-                    <div style={{width:'100px'}}>Second Yellow:{item.secondyellow}</div>
-                    <div style={{width:'50px'}}>Red:{item.red}</div>
-                    <div style={{width:'60px'}}>Sub In:{item.subIn}</div>
-                    <div style={{width:'60px'}}>Sub Out:{item.subOut}</div>
-                    <div style={{width:'60px'}}>Minutes:{item.min}</div>
+                    <div style={{width:'5vw'}}>Position: {item.position}</div>
+                    <div style={{width:'4vw'}}>Goals:{item.goals}</div>
+                    <div style={{width:'4vw'}}>Asists:{item.assists}</div>
+                    <div style={{width:'4vw'}}>Yellow:{item.yellow}</div>
+                    <div style={{width:'7vw'}}>Second Yellow:{item.secondyellow}</div>
+                    <div style={{width:'5vw'}}>Red:{item.red}</div>
+                    <div style={{width:'5vw'}}>Sub In:{item.subIn}</div>
+                    <div style={{width:'5vw'}}>Sub Out:{item.subOut}</div>
+                    <div style={{width:'5vw'}}>Minutes:{item.min}</div>
                   </React.Fragment>
                 )}
                 {!item.played && (
-                    <div style={{width:'590px',textAlign:'center'}}>NOT PLAYED</div>
+                    <div style={{width:'44vw',textAlign:'center'}}>NOT PLAYED</div>
                 )}
               </div>
               <hr/>

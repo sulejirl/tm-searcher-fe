@@ -6,7 +6,7 @@ import {Profile} from '../Profile';
 import {Stats} from '../Stats';
 
 import './App.css';
-import useDebounce from '../../hooks/useDebounce.js';
+import useDebounce from '../../utils/hooks/useDebounce';
 const App = () => {
   const [searchTerm,setSearchTerm] = useState('');
   const [searchResults,setSearchResults] = useState([]);

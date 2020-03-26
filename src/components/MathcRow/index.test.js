@@ -1,10 +1,16 @@
 import '@testing-library/jest-dom'
 import React from 'react'
 import {render, waitForElement} from '@testing-library/react'
-import App from './index';
+import MatchRow from './index';
 
-it('render Search Player', async () => {
+const item = {
+  competition:'Competition',
+  matches:[
+    {}
+  ]
+}
+it('render without crash', async () => {
   // Render new instance in every test to prevent leaking state
-  const { getAllByText } = render(<App />);
-  await waitForElement(() => getAllByText(/Search Player/i));
+render(<MatchRow item= {item} />);
 });
+ 

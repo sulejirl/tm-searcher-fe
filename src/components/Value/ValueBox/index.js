@@ -4,11 +4,9 @@ const StyledValueBox = styled.div`
     display:flex;
     font-family: 'Exo 2', sans-serif;  
     flex-direction:column;
-    width:40%;
-    padding:5%;
+    width:10vw;
+    font-size:1vw;
+    padding:1vw;
     align-items:center;
-    @media (max-width: 640px) {
-      font-size: 10px;
-    }
 `;
 export default StyledValueBox;

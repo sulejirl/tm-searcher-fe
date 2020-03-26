@@ -1,5 +1,5 @@
 import React from 'react'
-import ProfileCard from '../../components/ProfileCard';
+import ProfileCard from '../../components/BasicElements/ProfileCard';
 import Value from '../../components/Value';
 import moment from 'moment';
 

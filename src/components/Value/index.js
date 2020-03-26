@@ -1,6 +1,6 @@
 import React from 'react'
 import ValueBox from './ValueBox';
-import Line from '../HorizontalLine';
+import Line from '../BasicElements/HorizontalLine';
 
 const Value = (props) => {
     return (
@@ -9,7 +9,7 @@ const Value = (props) => {
           {props.name}
         </div>
         <Line/>
-        <div style={{fontSize:'16px'}}>
+        <div style={{fontSize:'1vw'}}>
           {props.value}
         </div>
       </ValueBox>
