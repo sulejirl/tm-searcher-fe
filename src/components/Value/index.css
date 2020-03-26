@@ -1,0 +1,19 @@
+
+.name {
+  color:'#4d80e4'
+}
+
+.value {
+  font-size: 1vw;
+}
+
+@media only screen and (max-width: 800px) {
+  .name {
+    font-size: 1.5vw
+  }
+  
+  .value {
+    font-size: 1.5vw
+    
+  }
+}

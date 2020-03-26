@@ -1,0 +1,58 @@
+.title {
+  display: flex;
+  color: #4d80e4;
+  margin-top: 10px;
+  font-size: 2vw;
+  position: sticky;
+  left:0;
+  width: fit-content;
+}
+
+.row {
+  display: flex;
+  font-size: 1vw;
+  text-align: center;
+}
+
+.tournament {
+  width:16vw;
+}
+
+.apps, .goals, .asists {
+  width: 8vw;
+}
+.firstYellow, .secondYellow {
+  width: 10vw;
+}
+.redCard {
+  width: 7vw;
+}
+.played {
+  width: 13vw;
+}
+
+@media only screen and (max-width: 800px) {
+  .title {
+    font-size: 3vw;
+  }
+
+  .row {
+    font-size: 2vw;
+  }
+
+  .tournament {
+    width:32vw;
+  }
+  .apps, .goals, .asists {
+    width: 16vw;
+  }
+  .firstYellow, .secondYellow {
+    width: 20vw;
+  }
+  .redCard {
+    width: 14vw;
+  }
+  .played {
+    width: 26vw;
+  }
+}

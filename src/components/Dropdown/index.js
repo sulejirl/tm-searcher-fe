@@ -8,7 +8,9 @@ import Select from '@material-ui/core/Select';
 const useStyles = makeStyles(theme => ({
   formControl: {
     margin: theme.spacing(1),
-    width:'100%'
+    width:'80vw',
+    position:'sticky',
+    left:'5px'
   },
   selectEmpty: {
     marginTop: theme.spacing(2),
@@ -33,6 +35,7 @@ export default function SimpleSelect(props) {
           value={year}
           onChange={handleChange}
           defaultValue={2019}
+          style={{position:'sticky',left:'0px'}}
         >
           <MenuItem selected value={2019}>2019-2020</MenuItem>
           <MenuItem value={2018}>2018-2019</MenuItem>

@@ -1,0 +1,92 @@
+
+.resultRow {
+  display: flex;
+  font-size: 0.8vw;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.competition {
+  display: flex;
+  color: #4d80e4;
+  margin-top: 10px;
+  width: fit-content;
+  position: sticky;
+  left: 0;
+}
+
+.matchday {
+  width: 8vw;
+}
+
+.date,
+.goals,
+.asists,
+.yellow {
+  width: 4vw;
+}
+
+.home,
+.away {
+  width: 10vw;
+}
+
+.score {
+  width: 2vw;
+}
+
+.position,
+.red,
+.subIn,
+.subOut,
+.minPlayed {
+  width: 5vw;
+}
+
+.secondYellow {
+  width: 7vw;
+}
+
+
+@media only screen and (max-width: 800px) {
+  .matchday {
+    width: 22vw;
+  }
+
+  .date,
+  .goals,
+  .asists,
+  .yellow {
+    width: 10vw;
+  }
+
+  .home,
+  .away {
+    width: 24vw;
+  }
+
+  .score {
+    width: 5vw;
+  }
+
+  .position,
+  .red,
+  .subIn,
+  .subOut,
+  .minPlayed {
+    width: 12vw;
+  }
+
+  .secondYellow {
+    width: 16vw;
+  }
+
+  .resultRow {
+    font-size: 2vw;
+  }
+  .competition {
+    font-size: 3vw
+  }
+}
+
+;

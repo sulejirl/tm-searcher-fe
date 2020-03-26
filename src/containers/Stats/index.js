@@ -8,15 +8,15 @@
 
   export const Stats = (props) => {
       return (
-        <ProfileCard style={{flexDirection:'column',alignSelf:'flex-start',width:'80vw',textAlign:'center',overflowX:'scroll'}}>
-          <Button onClick={props.onClick}style={{backgroundColor:'#46b3e6',color:'white',width:'100%',fontSize:'1vw'}}>{props.statsSwitch ? 'Click for General Stats' : 'Click for Detailed Stats'}</Button>
+        <ProfileCard style={{flexDirection:'column',alignSelf:'flex-start',width:'80vw',overflowX:'scroll'}}>
+          <Button onClick={props.onClick}style={{backgroundColor:'#46b3e6',color:'white',fontSize:'1vw', position:'sticky',left:'0', width:'80vw'}}>{props.statsSwitch ? 'Click for General Stats' : 'Click for Detailed Stats'}</Button>
           {!props.statsSwitch && props.item.stats.map((item,index)=>{
             return(
               <StatsRow item={item} position={props.item.position}/>
             )
           })}
           {props.statsSwitch && (
-            <Dropwdown onChange={props.onChangeYear}/>
+            <Dropwdown style={{position:'sticky'}} onChange={props.onChangeYear}/>
           )}
           {props.statsSwitch && props.seasonalStats.length > 0 && props.seasonalStats.map((item,index)=>{
             return(

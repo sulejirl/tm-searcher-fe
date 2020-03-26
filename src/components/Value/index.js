@@ -1,15 +1,16 @@
 import React from 'react'
 import ValueBox from './ValueBox';
 import Line from '../BasicElements/HorizontalLine';
+import './index.css'
 
 const Value = (props) => {
     return (
       <ValueBox>
-        <div style={{color:'#4d80e4'}}>
+        <div className='name'>
           {props.name}
         </div>
         <Line/>
-        <div style={{fontSize:'1vw'}}>
+        <div className='value'>
           {props.value}
         </div>
       </ValueBox>
