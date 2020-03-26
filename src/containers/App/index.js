@@ -4,8 +4,8 @@ import {Search} from '../Search';
 import {Result} from '../Result'
 import {Profile} from '../Profile';
 import {Stats} from '../Stats';
-import './index.css';
 import useDebounce from '../../utils/hooks/useDebounce';
+import './index.css';
 const App = () => {
   const [searchTerm,setSearchTerm] = useState('');
   const [searchResults,setSearchResults] = useState([]);
@@ -57,7 +57,7 @@ const App = () => {
       })
   }
   return (
-    <div className='App'>
+    <div className='application'>
       <Search onInputChange = {setSearchTerm}/>
       {!profile.name && searchResults.map((item,key) => {
         return(<Result item={item} onClick={handleOnSelectPlayer}/>)
