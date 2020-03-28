@@ -19,7 +19,7 @@ const Value = (props) => {
           <Line/>
           {props.item.stats.map((item,index)=>{
             return(
-            <div>
+            <div key={index}>
               <div className='row'>
                 <div className='tournament'>{item.competition}</div>
                 <div className='apps'>Apps: {item.apps}</div>

@@ -3,7 +3,7 @@ import ResultBox from '../../components/BasicElements/ResultBox';
 
 export const Result = (props) => {
     return (
-        <ResultBox onClick={()=>{props.onClick(props.item)}}>
+        <ResultBox  key={props.key} onClick={()=>{props.onClick(props.item)}}>
           <img alt={'Player Image'}src={props.item.img} width={'100%'}/>
           <div>
             <div>Name</div>

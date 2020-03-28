@@ -4,6 +4,13 @@ import Value from '../../components/Value';
 import moment from 'moment';
 
 export const Profile = (props) => {
+  const nationalMatches = (matches) => {
+    let result = [];
+    matches.map((item,index)=> {
+      result.push(<div key={index}>{item.nationalTeam} - {item.apps} </div>)
+    })
+    return result;
+  }
     return (
       <ProfileCard style={{alignContent:'flex-start'}}>
         <Value name={'Name'} value={props.item.name}/>
@@ -32,8 +39,8 @@ export const Profile = (props) => {
           <Value name={'Contract'} value={moment(props.profile.contractexpires).format('DD.MM.YYYY')}/>
         )}
         <Value name={'Nationality'} value={props.profile.citizenship}/>
-        {props.profile.formerInternational.length > 0 && (
-          <Value name={'Caps'} value={props.profile.formerInternational +'/'+ props.profile.caps}/>
+        {props.profile.nationalMatches.length > 0 && (
+          <Value name={'National Caps'} value={nationalMatches(props.profile.nationalMatches)}/>
         )}
       </ProfileCard>
     )

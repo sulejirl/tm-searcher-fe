@@ -59,7 +59,7 @@ const App = () => {
     <div className='application'>
       <Search onInputChange = {setSearchTerm}/>
       {!profile.name && searchResults.map((item,key) => {
-        return(<Result item={item} onClick={handleOnSelectPlayer}/>)
+        return(<Result key={key} item={item} onClick={handleOnSelectPlayer}/>)
       })}
       <div style={{display:'flex'}}>
         {profile.name && stats.position && ( 
