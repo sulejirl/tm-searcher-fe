@@ -16,9 +16,9 @@ const Value = (props) => {
           )}
           {props.item.competition !== '' && (
             <React.Fragment>
-          <div className='competition'>
-            {props.item.competition}
-          </div>
+              <div className='competition'>
+                {props.item.competition} 
+              </div>
           <Line/>
           {props.item.matches.map((item,index)=>{
             return(
@@ -50,7 +50,12 @@ const Value = (props) => {
               </div>
             )
           })}
-          <hr/>
+          <div className='statistic-container'>
+            When played at {props.item.matchPlayedCount} matches team scored {props.item.goalScoredPlayed} and conceded {props.item.goalConcededPlayed} also keep clean sheet at {props.item.cleanSheetPlayed} mathces
+          </div>
+          <div className='statistic-container'>
+            When not played at {props.item.matchNotPlayedCount} matches team scored {props.item.goalScoredNotPlayed} and conceded {props.item.goalConcededNotPlayed} also keep clean sheet at {props.item.cleanSheetNotPlayed} mathces
+          </div>
             </React.Fragment>
           )}
         </Row>

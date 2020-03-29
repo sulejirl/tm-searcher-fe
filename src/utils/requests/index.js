@@ -28,5 +28,100 @@ export function getStats(params){
 }
 export function getStatsBySeason(params){
   return baseAxios('GET','statsbyseason',{params},type)
-  .then(result => result);
+  .then(result =>{
+    let response = result.data;
+    for(let i = 0; i<response.length; i++) {
+      let matchPlayedCount = 0;
+      let matchNotPlayedCount = 0;
+      let goalScoredPlayed = 0;
+      let goalScoredNotPlayed = 0;
+      let goalConcededPlayed = 0;
+      let goalConcededNotPlayed = 0;
+      let cleanSheetPlayed = 0;
+      let cleanSheetNotPlayed = 0;
+      for(let k = 0;k<response[i].matches.length; k++){
+          if(response[i].matches[k].played && Number(response[i].matches[k].min.split("'")[0]) > 50){
+              matchPlayedCount++;
+              if(response[i].matches[k].status === 'win'){
+                  let scoreArr = response[i].matches[k].score.split(':').map(Number);
+                  if(scoreArr[0] > scoreArr[1]){
+                      goalScoredPlayed = goalScoredPlayed + scoreArr[0];
+                      goalConcededPlayed = goalConcededPlayed + scoreArr[1];
+                      if(scoreArr[1] === 0 ) {
+                        cleanSheetPlayed++
+                      }
+                  } else {
+                      goalScoredPlayed = goalScoredPlayed + scoreArr[1];
+                      goalConcededPlayed = goalConcededPlayed + scoreArr[0];
+                      if(scoreArr[0] === 0 ) {
+                        cleanSheetPlayed++
+                      }
+                  }
+              } else if(response[i].matches[k].status === 'lose') {
+                  let scoreArr = response[i].matches[k].score.split(':').map(Number);
+                  if(scoreArr[0] > scoreArr[1]){
+                      goalScoredPlayed = goalScoredPlayed + scoreArr[1];
+                      goalConcededPlayed = goalConcededPlayed + scoreArr[0];
+                  } else {
+                      goalScoredPlayed = goalScoredPlayed + scoreArr[0];
+                      goalConcededPlayed = goalConcededPlayed + scoreArr[1];
+                  }
+              } else if(response[i].matches[k].status === 'draw') {
+                  let scoreArr = response[i].matches[k].score.split(':').map(Number);
+                  goalScoredPlayed = goalScoredPlayed + scoreArr[1];
+                  goalConcededPlayed = goalConcededPlayed + scoreArr[0];
+                  if(scoreArr[1] === 0 ) {
+                    cleanSheetPlayed++
+                  }
+              }
+          } else if (!response[i].matches[k].played) {
+              matchNotPlayedCount++;
+              if(response[i].matches[k].status === 'win'){
+                  let scoreArr = response[i].matches[k].score.split(':').map(Number);
+                  if(scoreArr[0] > scoreArr[1]){
+                      goalScoredNotPlayed = goalScoredNotPlayed + scoreArr[0];
+                      goalConcededNotPlayed = goalConcededNotPlayed + scoreArr[1];
+                      if(scoreArr[1] === 0 ) {
+                        cleanSheetNotPlayed++
+                      }
+                  } else {
+                      goalScoredNotPlayed = goalScoredNotPlayed + scoreArr[1];
+                      goalConcededNotPlayed = goalConcededNotPlayed + scoreArr[0];
+                      if(scoreArr[0] === 0 ) {
+                        cleanSheetNotPlayed++
+                      }
+                  }
+              } else if(response[i].matches[k].status === 'lose') {
+                  let scoreArr = response[i].matches[k].score.split(':').map(Number);
+                  if(scoreArr[0] > scoreArr[1]){
+                      goalScoredNotPlayed = goalScoredNotPlayed + scoreArr[1];
+                      goalConcededNotPlayed = goalConcededNotPlayed + scoreArr[0];
+                  } else {
+                      goalScoredNotPlayed = goalScoredNotPlayed + scoreArr[0];
+                      goalConcededNotPlayed = goalConcededNotPlayed + scoreArr[1];
+                  }
+              } else if(response[i].matches[k].status === 'draw') {
+                  let scoreArr = response[i].matches[k].score.split(':').map(Number);
+                  goalScoredNotPlayed = goalScoredNotPlayed + scoreArr[1];
+                  goalConcededNotPlayed = goalConcededNotPlayed + scoreArr[0];
+                  if(scoreArr[0] === 0 ) {
+                    cleanSheetNotPlayed++
+                  }
+              }
+          }
+      }
+      response[i].matchPlayedCount = matchPlayedCount;
+      response[i].goalScoredPlayed = goalScoredPlayed;
+      response[i].goalConcededPlayed = goalConcededPlayed;
+      response[i].cleanSheetPlayed = cleanSheetPlayed;
+      response[i].matchNotPlayedCount = matchNotPlayedCount;
+      response[i].goalScoredNotPlayed = goalScoredNotPlayed;
+      response[i].goalConcededNotPlayed = goalConcededNotPlayed;
+      response[i].cleanSheetNotPlayed = cleanSheetNotPlayed;
+
+     
+  }
+  result.data = response;
+  return result;
+  });
 }

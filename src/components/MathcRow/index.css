@@ -14,6 +14,16 @@
   position: sticky;
   left: 0;
 }
+.statistic-container {
+  display: flex;
+  font-size: 1vw;
+}
+
+.competition-statistic {
+  font-size: 1vw;
+  align-self: flex-end;
+  margin-left: 10px;
+}
 
 .matchday {
   width: 8vw;
