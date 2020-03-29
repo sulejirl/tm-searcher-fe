@@ -16,7 +16,13 @@
 }
 .statistic-container {
   display: flex;
-  font-size: 1vw;
+  font-size: 0.8vw;
+}
+.stats-sentence {
+  width: 38vw;
+}
+.stats-phrase {
+  width: 15vw;
 }
 
 .competition-statistic {
@@ -98,7 +104,13 @@
     font-size: 3vw
   }
   .statistic-container {
-    font-size: 3vw;
+    font-size: 2vw;
+  }
+  .stats-phrase {
+    width: 32vw;
+  }
+  .stats-sentence {
+    width: 95vw;
   }
 }
 

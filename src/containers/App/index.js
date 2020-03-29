@@ -24,6 +24,7 @@ const App = () => {
         setProfile({});
         setStats({});
         setSeasonalStats([]);
+        setStatsSwitch(false);
       })
     }
   },[debouncedSearchTerm])

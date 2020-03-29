@@ -51,10 +51,32 @@ const Value = (props) => {
             )
           })}
           <div className='statistic-container'>
-            When played at {props.item.matchPlayedCount} matches team scored {props.item.goalScoredPlayed} and conceded {props.item.goalConcededPlayed} also keep clean sheet at {props.item.cleanSheetPlayed} mathces
+            <div className='stats-sentence'>
+              When played at {props.item.matchPlayedCount} matches team scored {props.item.goalScoredPlayed} and conceded {props.item.goalConcededPlayed} also keep clean sheet at {props.item.cleanSheetPlayed} mathces 
+            </div>
+            <div className='stats-phrase'>
+              Team Scored Per Match: {props.item.matchPlayedCount !== 0 ?(props.item.goalScoredPlayed/props.item.matchPlayedCount).toFixed(2): '0.00'}
+            </div>
+            <div className='stats-phrase'>
+              Team Conceded Per Match: {props.item.matchPlayedCount !== 0 ?(props.item.goalConcededPlayed/props.item.matchPlayedCount).toFixed(2): '0.00'}
+            </div>
+            <div className='stats-phrase'>
+            Clean Sheet Per Match: { props.item.matchPlayedCount !== 0 ? (props.item.cleanSheetPlayed/props.item.matchPlayedCount).toFixed(2) : '0.00'}
+            </div>
           </div>
           <div className='statistic-container'>
-            When not played at {props.item.matchNotPlayedCount} matches team scored {props.item.goalScoredNotPlayed} and conceded {props.item.goalConcededNotPlayed} also keep clean sheet at {props.item.cleanSheetNotPlayed} mathces
+            <div className='stats-sentence'>
+            When not played at {props.item.matchNotPlayedCount} matches team scored {props.item.goalScoredNotPlayed} and conceded {props.item.goalConcededNotPlayed} also keep clean sheet at {props.item.cleanSheetNotPlayed} mathces 
+            </div>
+            <div className='stats-phrase'>
+            Team Scored Per Match: { props.item.matchNotPlayedCount !== 0 ? (props.item.goalScoredNotPlayed/props.item.matchNotPlayedCount).toFixed(2) : '0.00'}
+            </div>
+            <div className='stats-phrase'>
+            Team Conceded Per Match: { props.item.matchNotPlayedCount !== 0 ? (props.item.goalConcededNotPlayed/props.item.matchNotPlayedCount).toFixed(2) : '0.00'}
+            </div>
+            <div className='stats-phrase'>
+            Clean Sheet Per Match: { props.item.matchNotPlayedCount !== 0 ? (props.item.cleanSheetNotPlayed/props.item.matchNotPlayedCount).toFixed(2) : '0.00'}
+            </div>
           </div>
             </React.Fragment>
           )}
