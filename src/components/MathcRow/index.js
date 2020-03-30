@@ -52,7 +52,7 @@ const Value = (props) => {
           })}
           <div className='statistic-container'>
             <div className='stats-sentence'>
-              When played at {props.item.matchPlayedCount} matches team scored {props.item.goalScoredPlayed} and conceded {props.item.goalConcededPlayed} also keep clean sheet at {props.item.cleanSheetPlayed} mathces 
+              When played at {props.item.matchPlayedCount} matches team scored {props.item.goalScoredPlayed} goals and conceded {props.item.goalConcededPlayed} goals, also keep clean sheet at {props.item.cleanSheetPlayed} matches 
             </div>
             <div className='stats-phrase'>
               Team Scored Per Match: {props.item.matchPlayedCount !== 0 ?(props.item.goalScoredPlayed/props.item.matchPlayedCount).toFixed(2): '0.00'}
@@ -66,7 +66,7 @@ const Value = (props) => {
           </div>
           <div className='statistic-container'>
             <div className='stats-sentence'>
-            When not played at {props.item.matchNotPlayedCount} matches team scored {props.item.goalScoredNotPlayed} and conceded {props.item.goalConcededNotPlayed} also keep clean sheet at {props.item.cleanSheetNotPlayed} mathces 
+            When not played at {props.item.matchNotPlayedCount} matches team scored {props.item.goalScoredNotPlayed} goals and conceded {props.item.goalConcededNotPlayed} goals, also keep clean sheet at {props.item.cleanSheetNotPlayed} matches 
             </div>
             <div className='stats-phrase'>
             Team Scored Per Match: { props.item.matchNotPlayedCount !== 0 ? (props.item.goalScoredNotPlayed/props.item.matchNotPlayedCount).toFixed(2) : '0.00'}

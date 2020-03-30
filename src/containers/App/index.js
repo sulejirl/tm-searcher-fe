@@ -5,6 +5,7 @@ import {Result} from '../Result'
 import {Profile} from '../Profile';
 import {Stats} from '../Stats';
 import useDebounce from '../../utils/hooks/useDebounce';
+import {Event,initGA} from '../../utils/googleAnalytics';
 const App = () => {
   const [searchTerm,setSearchTerm] = useState('');
   const [searchResults,setSearchResults] = useState([]);
@@ -18,6 +19,8 @@ const App = () => {
   const debouncedSearchTerm = useDebounce(searchTerm,500);
   useEffect(()=> {
     if(debouncedSearchTerm){
+      initGA();
+      Event('Search','Term Searched',searchTerm)
       searchPlayers({search:searchTerm})
       .then(response => {
         setSearchResults(response.data);

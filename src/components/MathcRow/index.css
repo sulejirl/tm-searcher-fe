@@ -19,10 +19,10 @@
   font-size: 0.8vw;
 }
 .stats-sentence {
-  width: 38vw;
+  width: 42vw;
 }
 .stats-phrase {
-  width: 15vw;
+  width: 13vw;
 }
 
 .competition-statistic {
@@ -110,7 +110,7 @@
     width: 32vw;
   }
   .stats-sentence {
-    width: 95vw;
+    width: 101vw;
   }
 }
 
